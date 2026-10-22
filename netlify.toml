@@ -1,6 +1,11 @@
 [build]
-  publish = "."
+  publish = "public"
   functions = "netlify/functions"
+
+[build.environment]
+  # The recipient is also the contact address intentionally shown on the website.
+  # Keep API keys and all other environment values covered by secrets scanning.
+  SECRETS_SCAN_OMIT_KEYS = "TO_EMAIL"
 
 [[headers]]
   for = "/*"

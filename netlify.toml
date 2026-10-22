@@ -1,6 +1,11 @@
 [build]
-  publish = "."
+  publish = "public"
   functions = "netlify/functions"
+
+[build.environment]
+  # Contact addresses are public website content, not credentials.
+  # Keep RESEND_API_KEY and all other secrets covered by scanning.
+  SECRETS_SCAN_OMIT_KEYS = "FROM_EMAIL,TO_EMAIL"
 
 [[headers]]
   for = "/*"
